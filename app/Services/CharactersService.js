@@ -10,7 +10,7 @@ class CharactersService {
     // NOTE "GET" is the method to retrieve data
     api.get('people')
       .then(res => {
-        ProxyState.next = res.data.next
+        ProxyState.cnext = res.data.next
         ProxyState.characters = res.data.results.map(c => new Character(c))
       })
       .catch(error => {
@@ -19,11 +19,11 @@ class CharactersService {
   }
 
   next() {
-    if (ProxyState.next) {
-      api.get(ProxyState.next)
+    if (ProxyState.cnext) {
+      api.get(ProxyState.cnext)
         .then(res => {
-          ProxyState.previous = res.data.previous
-          ProxyState.next = res.data.next
+          ProxyState.cprevious = res.data.previous
+          ProxyState.cnext = res.data.next
           ProxyState.characters = res.data.results.map(c => new Character(c))
         })
         .catch(error => {
@@ -34,11 +34,11 @@ class CharactersService {
 
 
   previous() {
-    if (ProxyState.previous) {
-      api.get(ProxyState.previous)
+    if (ProxyState.cprevious) {
+      api.get(ProxyState.cprevious)
         .then(res => {
-          ProxyState.previous = res.data.previous
-          ProxyState.next = res.data.next
+          ProxyState.cprevious = res.data.previous
+          ProxyState.cnext = res.data.next
           ProxyState.characters = res.data.results.map(c => new Character(c))
         })
         .catch(error => {

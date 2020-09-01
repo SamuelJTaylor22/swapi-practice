@@ -9,7 +9,7 @@ export default class Planet {
 
     return /*html*/`
     <div class='col-3'>
-      <div class="card p-2 value">
+      <div class="card p-2 my-2">
           ${this.name} - ${this.climate} - population ${this.pop}
       </div>
     </div>

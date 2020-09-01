@@ -11,7 +11,7 @@ export default class Character {
 
     return /*html*/`
     <div class='col-3'>
-      <div class="card p-2 value">
+      <div class="card p-2 my-2">
           ${this.name} - ${this.birthYear}
       </div>
     </div>
